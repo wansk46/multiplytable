@@ -17,6 +17,30 @@ function checkRangeIn1to1000(startNumber,endNumber){
 	return true;
 }
 
-module.exports ={checkStartNoIsLargerOrEqualToEndNo, checkRangeIn1to1000
+function checkNumIsInterger(startNumber,endNumber){
+	return Number.isInteger(startNumber)&&Number.isInteger(endNumber);
+}
+
+function mutiplyInputs(startNumber,endNumber){
+	return startNumber + '*' + endNumber + '=' + startNumber*endNumber;
+}
+
+function createMutiplyTable(startNumber,endNumber){
+	var string='';
+	if(checkStartNoIsLargerOrEqualToEndNo(startNumber,endNumber)
+		&&checkRangeIn1to1000(startNumber,endNumber)
+		&&checkNumIsInterger(startNumber,endNumber)){
+		for (var i=startNumber; i<=endNumber; i++) {
+            for (var j=startNumber; j<=i; j++) {
+            	string+= mutiplyInputs(j,i)+"\t";    
+            }
+            string+="\n";
+        }	
+	return string;
+	}
+	else {return null;}
+}
+
+module.exports ={checkStartNoIsLargerOrEqualToEndNo, checkRangeIn1to1000,checkNumIsInterger,mutiplyInputs,createMutiplyTable
 };
 
